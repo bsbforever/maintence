@@ -23,3 +23,5 @@ daily_report.py
 weekly_report.py
 
 monthly_report.py
+
+rman               oracle rman备份脚本
