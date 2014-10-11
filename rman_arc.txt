@@ -1,0 +1,10 @@
+RUN {
+crosscheck archivelog all;
+delete noprompt expired archivelog all;
+delete noprompt ARCHIVELOG until time 'SYSDATE-5';
+allocate channel c1 type disk;
+backup format 'E:\BAK\LEDARCBAK\LEDMES_arc_%U' filesperset 10 archivelog all;
+backup format 'E:\BAK\LEDARCBAK\LEDMES_ctl_%U' current controlfile;
+release channel c1;
+}
+exit
