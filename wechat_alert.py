@@ -6,9 +6,9 @@ import json
 import sys
 
 def GetToken():
-    Corpid='ww3083060923921313121'
+    Corpid='ww3083060923921313121'                                                                                # 企业ID
     CorpSecret='5_vWbwROiUQJkc2wBEPxkO0slPe2NsJ_qpvx2bW_M'
-    gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + Corpid + '&corpsecret=' + CorpSecret
+    gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + Corpid + '&corpsecret=' + CorpSecret  #企业号应用的Secret值
     #print  (gettoken_url)
     try:
         token_file =requests.get(gettoken_url)
@@ -23,11 +23,11 @@ def GetToken():
 def Send_Message(Token,Tag,Subject,Content):
 
     post_data={
-       'touser' : '',
-       'toparty' :'',
-       'totag' : Tag,
+       'touser' : '',                         #通讯录用户ID
+       'toparty' :'',                         #通讯录组ID
+       'totag' : Tag,                         #通讯录标签ID
        'msgtype' : 'text',
-       'agentid' : 1000002,
+       'agentid' : 1000002,                   #企业号应用的agentid
        'text' : {
            'content' : Subject+'\n'+Content
        },
