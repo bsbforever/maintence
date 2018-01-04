@@ -7,24 +7,24 @@ import smtplib
 import linecache
 from email.mime.text import MIMEText
 mailto_list=["ezio_shi@adata.com.cn"]
-mail_host="192.168.170.170"  #ÉèÖÃ·şÎñÆ÷
-mail_user="ezio_shi"    #ÓÃ»§Ãû
-#mail_pass="296701298a!"   #¿ÚÁî
-mail_postfix="adata.com.cn"  #·¢¼şÏäµÄºó×º
-def send_mail(to_list,sub,content):  #to_list£ºÊÕ¼şÈË£»sub£ºÖ÷Ìâ£»content£ºÓÊ¼şÄÚÈİ
-    me="ServerSpaceAlert"+"<"+mail_user+"@"+mail_postfix+">"   #ÕâÀïµÄhello¿ÉÒÔÈÎÒâÉèÖÃ£¬ÊÕµ½ĞÅºó£¬½«°´ÕÕÉèÖÃÏÔÊ¾
-    msg = MIMEText(content,_subtype='html',_charset='gb2312')    #´´½¨Ò»¸öÊµÀı£¬ÕâÀïÉèÖÃÎªhtml¸ñÊ½ÓÊ¼ş
-    msg['Subject'] = sub    #ÉèÖÃÖ÷Ìâ
+mail_host="192.168.170.170"  #è®¾ç½®æœåŠ¡å™¨
+mail_user="ezio_shi"    #ç”¨æˆ·å
+#mail_pass="54454545!"   #å£ä»¤
+mail_postfix="adata.com.cn"  #å‘ä»¶ç®±çš„åç¼€
+def send_mail(to_list,sub,content):  #to_listï¼šæ”¶ä»¶äººï¼›subï¼šä¸»é¢˜ï¼›contentï¼šé‚®ä»¶å†…å®¹
+    me="ServerSpaceAlert"+"<"+mail_user+"@"+mail_postfix+">"   #è¿™é‡Œçš„helloå¯ä»¥ä»»æ„è®¾ç½®ï¼Œæ”¶åˆ°ä¿¡åï¼Œå°†æŒ‰ç…§è®¾ç½®æ˜¾ç¤º
+    msg = MIMEText(content,_subtype='html',_charset='gb2312')    #åˆ›å»ºä¸€ä¸ªå®ä¾‹ï¼Œè¿™é‡Œè®¾ç½®ä¸ºhtmlæ ¼å¼é‚®ä»¶
+    msg['Subject'] = sub    #è®¾ç½®ä¸»é¢˜
     msg['From'] = me
     msg['To'] = ";".join(to_list)
     try:
         s = smtplib.SMTP()
-        s.connect(mail_host)  #Á¬½Ósmtp·şÎñÆ÷
+        s.connect(mail_host)  #è¿æ¥smtpæœåŠ¡å™¨
         #s.set_debuglevel(1)
         s.ehlo()
         s.starttls()
-        #s.login(mail_user,mail_pass)  #µÇÂ½·şÎñÆ÷
-        s.sendmail(me, to_list, msg.as_string())  #·¢ËÍÓÊ¼ş
+        #s.login(mail_user,mail_pass)  #ç™»é™†æœåŠ¡å™¨
+        s.sendmail(me, to_list, msg.as_string())  #å‘é€é‚®ä»¶
         s.close()
         return True
     except Exception, e:
