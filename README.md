@@ -25,3 +25,5 @@ weekly_report.py
 monthly_report.py
 
 rman               oracle rman备份脚本
+
+sendmail_wechat   微信企业号报警
