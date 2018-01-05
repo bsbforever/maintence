@@ -27,3 +27,5 @@ monthly_report.py
 rman               oracle rman备份脚本
 
 sendmail_wechat   微信企业号报警
+
+欢迎关注个人公众号:宅必备
