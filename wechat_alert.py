@@ -7,8 +7,8 @@ import sys
 
 def GetToken():
     Corpid='ww3083060923921313121'                                                                                # 企业ID
-    CorpSecret='5_vWbwROiUQJkc2wBEPxkO0slPe2NsJ_qpvx2bW_M'
-    gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + Corpid + '&corpsecret=' + CorpSecret  #企业号应用的Secret值
+    CorpSecret='5_vWbwROiUQJkc2wBEPxkO0slPe2NsJ_qpvx2bW_M'                                                        #企业号应用的Secret值
+    gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + Corpid + '&corpsecret=' + CorpSecret  
     #print  (gettoken_url)
     try:
         token_file =requests.get(gettoken_url)
