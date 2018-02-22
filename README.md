@@ -30,6 +30,9 @@ sendmail_wechat   微信企业号报警
 
 check_database.py  扫描数据库端口并存入xlsx  
 
+deletefile.py      删除指定目录下一定天数前的文件
+ 
+
 
 
 欢迎关注个人公众号:宅必备
