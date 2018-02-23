@@ -21,10 +21,9 @@ def  checkport(ipaddress,port): #检查端口是否开放
 
 if __name__=="__main__":
     #ipaddresses=['10.65.206.23','10.65.1.168','10.65.202.84']
-
     dbs=['1521:oracle','1522:oracle','1523:oracle','1525:oracle','1527:oracle','1529:oracle','1433:sqlserver','3306:mysql'] # 将需要检查的数据库端口放入列表
-    networks=['10.65.9','10.65.12','10.65.31'] #将需要检查的网段放入列表
-    path=r'd:\dbscan.xlsx'
+    networks=['10.65.202'] #将需要检查的网段放入列表
+    path=r'x:\dbscan.xlsx'
     wb = load_workbook(path) #打开excel文件，需要事先存在
 
     # 初始化第一个sheet
@@ -51,8 +50,8 @@ if __name__=="__main__":
 
             else:
                 #print(ipaddress + ' is  reachable')
+                opened = 0  # 用于判断是否无DB端口开放
                 for db in dbs:
-                    opened=0                        #用于判断是否无DB端口开放
                     port=int(db.split(':')[0])
                     name=db.split(':')[1]
                     ifopen=checkport(ipaddress, port)
