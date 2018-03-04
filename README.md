@@ -35,4 +35,4 @@ deletefile.py      删除指定目录下一定天数前的文件
 
 
 
-[欢迎关注个人公众号:宅必备](http://www.zhaibibei.cn/static/zhaibibei.png)
+[扫我关注个人公众号:宅必备](http://www.zhaibibei.cn/static/zhaibibei.png)
