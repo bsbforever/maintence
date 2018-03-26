@@ -4,7 +4,8 @@ import datetime
 import os
 import os.path
 import shutil
-def get_size(start_path = 'd:\\'):
+
+def get_size(start_path = 'd:\\'): #获取文件夹大小,未使用到
     total_size = 0
     for dirpath, dirnames, filenames in os.walk(start_path):
         for f in filenames:
@@ -12,7 +13,7 @@ def get_size(start_path = 'd:\\'):
             total_size += os.path.getsize(fp)
     return total_size
 
-def get_filename(path):
+def get_filename(path): #获取路径下全部文件的名称
     filepath = []
     for root, dirs, files in os.walk(path):
         if '$RECYCLE.BIN' not in root and 'System Volume Information' not in root:
@@ -49,7 +50,7 @@ if __name__=='__main__':
         upper_path=r'd:\smt_aoi_spi\AOI'+aoi+r'\JET7000E_SPC\1_R'
         #print (upper_path)
 
-        dirs=os.listdir(upper_path)
+        dirs=os.listdir(upper_path) #获取子目录(这里是包含目录下的文件的)
         for dir in dirs:
             path=upper_path+'\\'+dir
             if os.path.isdir(path):
@@ -63,7 +64,7 @@ if __name__=='__main__':
                     #print filename
                     for i  in filename:
                         if os.path.splitext(i)[1][1:].lower() not  in ['db','ini','pdf','prg','mdb','off']\
-                                and ('data' in i.lower() or 'image' in i.lower()):
+                                and ('data' in i.lower() or 'image' in i.lower()): #排除指定扩展名和文件夹名
                             try:
                                 modtime=get_filecreatetime(i)
 
