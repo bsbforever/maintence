@@ -44,29 +44,40 @@ if __name__=='__main__':
     nowtime = datetime.datetime.now()
     #path=raw_input('请输入要统计的文件夹:')
     #print path.split(':')[0].lower()
-    path=r'\\10.65.208.18\smt_aoi_spi\AOI07\JET7000E_SPC\1_R\M474K'
-    if os.path.exists(path) and path.split(':')[0].lower()!='c' :
+    nums = [ '01','02','03','04','06','07','08','09']
+    for aoi in nums:
+        upper_path=r'd:\smt_aoi_spi\AOI'+aoi+r'\JET7000E_SPC\1_R'
+        #print (upper_path)
 
-        filename=get_filename(path)
-    
+        dirs=os.listdir(upper_path)
+        for dir in dirs:
+            path=upper_path+'\\'+dir
+            if os.path.isdir(path):
+                #print (path)
+                print ('Now analyze '+path)
+                if os.path.exists(path) and path.split(':')[0].lower()!='c' :
 
-        #print filename
-        for i  in filename:
-            if os.path.splitext(i)[1][1:].lower() not  in ['db','ini','pdf','prg','mdb','off']\
-                    and ('data' in i.lower() or 'image' in i.lower()):
-                try:
-                    modtime=get_filemodtime(i)
+                    filename=get_filename(path)
 
-                    timedelt=(nowtime - modtime ).days
-                    if timedelt>120:
-                        print (str(i) +' 已经'+str(timedelt)+'天未修改')
-                        #os.remove(i)
 
-                except Exception as e:
-                    print (e)
-            else:
-                #print (str(i)+' specail extentions,not deleted')
-                pass
-        #print destpath
-    else:
-        print ('请输入正确的路径')
+                    #print filename
+                    for i  in filename:
+                        if os.path.splitext(i)[1][1:].lower() not  in ['db','ini','pdf','prg','mdb','off']\
+                                and ('data' in i.lower() or 'image' in i.lower()):
+                            try:
+                                modtime=get_filecreatetime(i)
+
+                                timedelt=(nowtime - modtime ).days
+                                if timedelt>90:
+                                    print (str(i) +' 已经'+str(timedelt)+'天未修改')
+                                    os.remove(i)
+
+                            except Exception as e:
+                                print (e)
+                        else:
+                            #print (str(i)+' specail extentions,not deleted')
+                            pass
+                    #print destpath
+                else:
+                    print ('请输入正确的路径')
+                #break
