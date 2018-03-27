@@ -45,7 +45,7 @@ if __name__=='__main__':
     log_time=time.strftime("%Y%m%d%H%M%S", time.localtime())
     file_name='move_'+log_time+'.txt'
     log_file = open(file_name, 'w')
-    sys.stdout = log_file
+    sys.stdout = log_file  #输出重定向至文件
     nowtime = datetime.datetime.now()
     #path=raw_input('请输入要统计的文件夹:')
     #print path.split(':')[0].lower()
